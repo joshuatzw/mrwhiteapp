@@ -119,22 +119,30 @@ export default function Game () {
   // }
 
   return(
-    <div>
+    <div className='text-container'>
       
-      <h1> You are {resources.name} </h1>
+      <h2> Player: {resources.name} </h2>
 
       <button onClick={clickHandler}> Show / Hide </button>
 
       {revealIdentity ? 
       <div>
-        <h2> Your identity is {resources.playerObject[resources.name]} </h2> 
-        <h2> { resources.playerObject[resources.name] === "spy" ? 
+        {/* <h2> Your identity is {resources.playerObject[resources.name]} </h2>  */}
+        { resources.playerObject[resources.name] === "spy" ? 
         
         // Spy
-        "Youre a Spy" : 
+        <div> 
+          <h3> You're a Spy </h3>
+          <p> Blend in, don't let them know that </p>
+        </div>
         
+        : 
         
-        `Your Word Is: ${listOfWords[resources.globalWordNumber]}` }</h2>
+        <div>
+          <p> Your Word Is: </p>
+          <h2> {listOfWords[resources.globalWordNumber]} </h2>
+        </div>
+        }
       </div>
       : null}
       

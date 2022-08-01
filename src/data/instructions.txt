@@ -1,0 +1,33 @@
+Instructions: 
+
+
+Mr White: 
+ 
+
+Win Conditions:
+
+
+
+<h3> Instructions: </h3>
+<p> 
+Ideal Group Size: 4-10 players
+Mr White is a social deduction game where all players in game lobby receive a word except for Mr White (Spy).
+</p>
+
+<h3> Players: </h3>
+<p>
+Starting with the youngest player, take turns to describe the word in 1 sentence without giving it away. 
+Take time to consider your friends' statements, and try to identify who Mr White is, and vote him out! 
+</p>
+
+<h3>Mr White:</h3>
+<p>
+Blend in, and attempt to guess the word that everybody's describing.
+</p>
+
+<h3>Win Conditions:</h3>
+<p>
+Players win when Mr White is voted out.
+However, Mr White can redeem himself/herself if he/she can guess the word at the end.
+Mr White also wins when there are more spies than players, or when there is only 1 player left standing. 
+</p>

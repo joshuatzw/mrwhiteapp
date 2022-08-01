@@ -7,7 +7,9 @@ import Home from './components/Home';
 import Lobby from './components/Lobby'
 import Game from './components/Game';
 import Result from './components/Result';
+import Modal from 'react-modal';
 
+Modal.setAppElement('#root');
 function App() {
 
 
