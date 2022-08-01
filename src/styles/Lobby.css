@@ -1,0 +1,14 @@
+
+.lobby-sub-heading{
+  font-weight: 500;
+}
+
+.player-container {
+  margin-top: 5px;
+}
+
+.player-list-item {
+  color: #393E46;
+  font-weight: normal;
+  
+}

@@ -2,7 +2,7 @@ import { useContext, useEffect, useLayoutEffect} from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getPlayerList, putIdentities, getRoomStatus, updateRoomStatus, putNumberOfSpiesInDB } from '../services/firebase';
 import { GameContext } from '../store/GameContext';
-import './Lobby.css'
+import '../styles/Lobby.css'
 import { spyCount, spyCountMoreThan10 } from '../data/gamedata';
 
 export default function Lobby() {
@@ -85,20 +85,24 @@ export default function Lobby() {
 
 
   return (
-    <div>
-      <h1> Room {resources.room} </h1>
-      <h2> Player count: {resources.playerList.length} </h2>
-      <ul>
-        {resources.playerList.map((player)=>{
-          return(
-            <li className='player-list-item' key={player}> {player} </li>
-          )
-        })}
-      </ul>
+      <div className='text-container'>
+        <h2> Room {resources.room} </h2>
+        <h2 className='lobby-sub-heading'> Players: {/* {resources.playerList.length}  */} </h2>
+        
+          {resources.playerList.map((player)=>{
+            return(
+              <div className='player-container'>
+                <span className='player-list-item' key={player}> {player} </span>
+                <br />
+              </div>
+            )
+          })}
 
-      <button className='homepage-button' onClick={startGame}> Start Game</button>
-    </div>
+          <br />
+        
 
+        <button className='homepage-button' onClick={startGame}> Start Game</button>
+      </div>
         
   )
 }

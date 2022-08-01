@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GameContext } from '../store/GameContext'
 import { getIdentities, castVote, getVotes, getResultStatus, updateResultStatusToFalse, updateResultStatusToTrue, kickPlayer, getSpyCountFromDB, updateSpyCount, getWordNumber, getWordGuessedStatus, updateWordGuessedStatus } from '../services/firebase';
 import { listOfWords } from '../data/listOfWords';
+import '../styles/Game.css'
 
 export default function Game () {
   const resources = useContext(GameContext)

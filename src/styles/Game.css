@@ -1,0 +1,9 @@
+.vote-button{
+  background-color: rgb(113, 113, 113);
+  margin: 3px;
+  width: 100px;
+  font-size: 15px;
+  color: white;
+  box-shadow: inset;
+  text-align: center;
+}

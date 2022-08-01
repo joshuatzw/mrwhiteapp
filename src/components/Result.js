@@ -4,6 +4,7 @@ import { GameContext } from '../store/GameContext'
 import { getResultStatus, updateResultStatusToFalse, updateEndGameStatusToTrue, getEndGameStatus, getIdentities, getWordGuessedStatus, updateWordGuessedStatusToTrue, updateWordGuessedStatusToFalse } from '../services/firebase'
 import { useNavigate } from 'react-router-dom'
 import { listOfWords } from '../data/listOfWords'
+import '../styles/Result.css'
 
 export default function Result() {
   const resources = useContext(GameContext)
@@ -83,13 +84,13 @@ export default function Result() {
   }
 
   return(
-    <div>
+    <div className='text-container'>
       {resources.playerToKick !== '' ? 
       
       // If a player had been voted out: 
       <div>
-        <h2> {resources.playerToKick} Has Been Voted Out </h2> 
-        <h2> Their Identity: {resources.playerToKickIdentity} </h2>
+        <h4> {resources.playerToKick} Has Been Voted Out </h4> 
+        <p> Their Identity: {resources.playerToKickIdentity} </p>
         
         {/* Display Varying text depending on spyoutcome */}
         {resources.globalSpyCount !== 0 && resources.globalSpyCount < resources.playerCount - resources.globalSpyCount ?
@@ -118,25 +119,39 @@ export default function Result() {
         : 
         // Spy has been voted out 
         // no more spies
-        <div> 
-          <h1> There are no more spies, victory? </h1>
+        <div className='sub-text-container'> 
+          <h4> All spies have been voted out. </h4>
+          <p> The spies can now make a guess to win the game </p>
+            
+            {resources.name === resources.playerToKick ? 
             <div>
               <input className='homepage-input' placeholder='Make a Guess!' value={guess} onChange={((e)=>{setGuess(e.target.value)})}/>
               <br />
               <button className='result-button' onClick={guessHandler}> Guess! </button>
-           </div>
-          <button className='result-button' onClick={endGameClickHandler}> Game Over </button>
+            </div>
+            : null
+            }
+          
         </div>
         }
       </div>:
-      <h1> Everyone Survived! </h1>}
-
+      <div>
+        <h1> Everyone Survived! </h1>
+        <button onClick={resumeGameClickHandler}> Back to Game </button>
+      </div>
+      }
 
       { resources.wordGuessed === true ? 
-        <h1> THE SPIES WON!</h1> 
+        <div>
+          <h2> THE SPIES WON!</h2> 
+          <button className='result-button' onClick={endGameClickHandler}> Game Over </button>
+        </div>
         : resources.wordGuessed === false ?
-        <h1> THE SPIES LOST! </h1> :
-        null
+        <div>
+          <h2> THE SPIES LOST! </h2>
+          <button className='result-button' onClick={endGameClickHandler}> Game Over </button>
+        </div>
+         : null
       }
 
 

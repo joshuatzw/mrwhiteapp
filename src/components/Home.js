@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import { Router, useNavigate } from 'react-router-dom'
 import { addPlayer, getPlayerList, createGame, getRoomStatus } from '../services/firebase'
 import { GameContext } from '../store/GameContext'
+import '../styles/Home.css'
 
 export default function Home() {
 
@@ -48,16 +49,17 @@ function createHandler(name) {
 
 
 return (
-  <div>
-    <h1> Mr White </h1>
+  <div className="text-container">
+    <div className='spacer' />
+    <h1 className='homepage-text'> Mr White </h1>
     <input className='homepage-input' value={name} onChange={(e)=>{setName(e.target.value)}} placeholder="Name"/>
     <br />
     <input className='homepage-input' value={room} onChange={(e)=>{setRoom(e.target.value)}} placeholder="Room ID"/>
     <br />
 
-    <button className='homepage-button' onClick={()=>{joinHandler(name, room)}}> Join </button>
+    <button className='homepage-button' onClick={()=>{joinHandler(name, room)}}> Join a Game </button>
     <br />
-    <button className='homepage-button' onClick={()=>{createHandler(name)}}> Create Room </button>
+    <button className='homepage-button' onClick={()=>{createHandler(name)}}> Create a Room </button>
 
         
   </div>
